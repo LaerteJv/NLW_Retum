@@ -13,11 +13,17 @@
   --brand-beige: hsl(39, 100%, 97%);
   --brand-light: hsl(148, 23%, 89%);
   --nav-height: 7.2rem;
+  --bg-light: hsl(180, 14%, 97%);
 
   font-size: 62.5%; /* 1rem = 10px*/
 }
 
-html, body {
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
   width: 100%;
   height: 100%;
 }
@@ -27,6 +33,7 @@ body {
   font-size: 1.6rem;
   text-align: center;
   overflow: overlay;
+  background-color: var(--bg-light);
 }
 .wrapper {
   width: 37.5rem;
@@ -38,16 +45,19 @@ ul {
   list-style: none;
 }
 
-/* ==========HADER==========*/
-
-
-header {
-  padding-right: 2rem;
-  padding-left: 2rem;
-  margin-top: calc(4.1rem + var(--nav-height));
+section {
+  padding-block: 10rem;
 }
 
-header::before {
+/* ==========HOME==========*/
+
+#home {
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-top:  calc(4.1rem + var(--nav-height));
+}
+
+#home::before {
   content: '';
   width: 100%;
   height: calc(108rem + var(--nav-height));
@@ -59,19 +69,19 @@ header::before {
   z-index: -1;
 }
 
-header h4 {
+#home h4 {
   font-size: 1.4rem;
   color: var(--primary-color);
 }
 
-header h1 {
+#home h1 {
   font-size: 3.4rem;
   color: var(--headilne);
   line-height: 130%;
   margin-bottom: 2.4rem;
 }
 
-header p {
+#home p {
   font-size: 1.8rem;
   line-height: 150%;
   font-weight: 400;
@@ -79,7 +89,7 @@ header p {
   margin-bottom: 3.2rem;
 }
 
-header button {
+#home button {
   background: var(--primary-color);
   border: none;
   border-radius: 4rem;
@@ -98,14 +108,14 @@ header button {
   margin-left: auto;
 }
 
-header img {
+#home img {
   width: 26.4rem;
   display: block;
   margin-inline: auto;
   object-position: 0 2rem;
 }
 
-.stats {
+#home .stats {
   width: 32.7rem;
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -120,14 +130,14 @@ header img {
   gap: 6ren;
 }
 
-.stat h3 {
+#home .stat h3 {
   font-size: 4.8rem;
   color: var(--secondary-color);
   line-height: 130%;
   margin-bottom: 0.4rem;
 }
 
-.stat p {
+#home .stat p {
   margin: 0;
   color: var(--primary-color);
   font-size: 1.6rem;
@@ -180,14 +190,21 @@ body.menu-expanded > :not(nav) {
   display: none;
 }
 
-.menu, .close-menu, body.menu-expanded .open-menu {
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
   opacity: 0;
   visibility: hidden;
 }
 
-body.menu-expanded .menu, body.menu-expanded .close-menu {
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
   opacity: 1;
   visibility: visible;
+}
+
+.menu {
+  transform: translateY(100%);
 }
 
 body.menu-expanded .menu {
@@ -198,6 +215,8 @@ body.menu-expanded .menu {
   width: 100vw;
   height: 100vh;
   padding-top: var(--nav-height);
+  transition: transform 700ms;
+  transform: translateY(0);
 }
 
 body.menu-expand nav {
@@ -220,7 +239,7 @@ body.menu-expand nav {
 }
 
 .menu .button {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 4rem;
   font-weight: 700;
   font-size: 1.8rem;
@@ -233,7 +252,6 @@ body.menu-expand nav {
   margin-top: 4.8rem;
   margin-bottom: 8rem;
 }
-
 
 .social-links {
   display: flex;
@@ -256,6 +274,39 @@ body.menu-expanded button path {
   stroke: white;
 }
 
-  
+/*==========SERVICES==========*/
 
+#services header h4 {
+  font-size: 1.4rem;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-bottom: 1.6rem;
 
+}
+
+#services header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+  color: var(--headilne);
+  margin-bottom: 6rem;
+}
+
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .cards {
+  padding: 2.4rem;
+  text-align: left;
+  background: white;
+  border: 1px solid var(--brand-light);
+  border-radius: .6rem;
+}
+
+#services .cards h3 {
+  margin-block: 1.6rem;
+}
