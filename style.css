@@ -45,9 +45,170 @@ ul {
   list-style: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 section {
   padding-block: 10rem;
 }
+
+section header h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 00.08rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+section header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+  color: var(--headilne);
+}
+
+section header h1 {
+  font-size: 3.4rem;
+  color: var(--headilne);
+  line-height: 130%;
+  margin-bottom: 2.4rem;
+}
+
+section .content p {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 150%;
+  color: var(--paragraph);
+}
+
+
+/*==========NAVIGARION==========*/
+
+nav {
+  display: flex;
+  height: var(--nav-height);
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+}
+
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav.scroll {
+  background: var(--primary-color);
+}
+
+nav.scroll .logo path {
+  fill: white;
+}
+
+nav.scroll button path {
+  stroke: white;
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*==========MENU-EXPANDED==========*/
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+body.menu-expanded > :not(nav) {
+  visibility: hidden;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu {
+  transform: translateY(100%);
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+  width: 100vw;
+  height: 100vh;
+  padding-top: var(--nav-height);
+  transition: transform 700ms;
+  transform: translateY(0);
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  margin-top: 6rem;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu .button {
+  background: #ffffff;
+  border-radius: 4rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--primary-color);
+  display: inline-block;
+  padding: 16px 32px;
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 100;
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+}
+
+body.menu-expanded button path {
+  stroke: white;
+}
+
 
 /* ==========HOME==========*/
 
@@ -72,6 +233,7 @@ section {
 #home h4 {
   font-size: 1.4rem;
   color: var(--primary-color);
+  margin-bottom: 1.6rem;
 }
 
 #home h1 {
@@ -144,137 +306,14 @@ section {
   line-height: 150%;
 }
 
-/*==========NAVIGARION==========*/
 
-nav {
-  display: flex;
-  height: var(--nav-height);
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
-nav .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-nav .scroll {
-  background: var(--primary-color);
-  width: 100vw;
-}
-
-nav .scroll svg:nth-child(1) path {
-  fill: white;
-}
-
-nav .scroll button path {
-  stroke: white;
-}
-
-nav button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/*==========MENU-EXPANDED==========*/
-
-body.menu-expanded {
-  overflow: hidden;
-}
-
-body.menu-expanded > :not(nav) {
-  display: none;
-}
-
-.menu,
-.close-menu,
-body.menu-expanded .open-menu {
-  opacity: 0;
-  visibility: hidden;
-}
-
-body.menu-expanded .menu,
-body.menu-expanded .close-menu {
-  opacity: 1;
-  visibility: visible;
-}
-
-.menu {
-  transform: translateY(100%);
-}
-
-body.menu-expanded .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: var(--primary-color);
-  width: 100vw;
-  height: 100vh;
-  padding-top: var(--nav-height);
-  transition: transform 700ms;
-  transform: translateY(0);
-}
-
-body.menu-expand nav {
-  position: relative;
-}
-
-.menu ul:nth-child(1) {
-  display: flex;
-  flex-direction: column;
-  gap: 4.8rem;
-  margin-top: 6rem;
-  font-weight: 700;
-  font-size: 2.4rem;
-  line-height: 3.1rem;
-}
-
-.menu ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.menu .button {
-  background: #ffffff;
-  border-radius: 4rem;
-  font-weight: 700;
-  font-size: 1.8rem;
-  line-height: 2.3rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--primary-color);
-  display: inline-block;
-  padding: 16px 32px;
-  margin-top: 4.8rem;
-  margin-bottom: 8rem;
-}
-
-.social-links {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3.2rem;
-}
-
-body.menu-expanded .logo,
-body.menu-expanded button {
-  position: relative;
-  z-index: 100;
-}
-
-body.menu-expanded .logo path {
-  fill: white;
-}
-
-body.menu-expanded button path {
-  stroke: white;
-}
 
 /*==========SERVICES==========*/
+
+#services header h2 {
+  margin-bottom: 6rem;
+}
 
 #services header h4 {
   font-size: 1.4rem;
@@ -299,7 +338,7 @@ body.menu-expanded button path {
   gap: 3.2rem;
 }
 
-#services .cards {
+#services .card {
   padding: 2.4rem;
   text-align: left;
   background: white;
@@ -307,6 +346,22 @@ body.menu-expanded button path {
   border-radius: .6rem;
 }
 
-#services .cards h3 {
+#services .card h3 {
   margin-block: 1.6rem;
+}
+
+/*==========ABOUT==========*/
+
+#about {
+  text-align: left;
+  background-color: var(--brand-beige);
+}
+
+#about header h2 {
+  margin-bottom: 2.4rem;
+}
+
+#about .content p {
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
 }
